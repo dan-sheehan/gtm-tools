@@ -223,7 +223,7 @@ def result_to_markdown(data):
     c = data.get("company", {})
     p = data.get("prospect", {})
 
-    lines.append(f"# Discovery Call Prep")
+    lines.append("# Discovery Call Prep")
     lines.append("")
 
     lines.append(f"## About the Company: {c.get('name', 'Unknown')}")

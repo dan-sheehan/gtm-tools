@@ -13,7 +13,7 @@ status:
 	./hub status
 
 test:
-	python3 -m pytest apps/ -v
+	python3 -m pytest tests/ -v
 
 lint:
 	python3 -m ruff check apps/

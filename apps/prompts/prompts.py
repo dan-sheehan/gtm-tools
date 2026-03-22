@@ -23,8 +23,8 @@ BASE_DIR = Path(__file__).resolve().parent
 # Add app directory to path so we can import cli subpackage
 sys.path.insert(0, str(BASE_DIR))
 
-from cli.indexer import index_prompts, Prompt
-from cli.search import filter_by_tag
+from cli.indexer import index_prompts, Prompt  # noqa: E402
+from cli.search import filter_by_tag  # noqa: E402
 
 
 # ---------------------------------------------------------------------------
