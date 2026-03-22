@@ -2,15 +2,18 @@
 
 Apps use hyphenated directory names (e.g. competitive-intel) which aren't
 valid Python package names. This conftest uses importlib to load them
-as importable modules and provides convenience accessors.
+as importable modules via a lazy finder so they are only imported when
+a test actually needs them (avoiding side effects at collection time).
 """
 from __future__ import annotations
 
+import importlib
+import importlib.abc
+import importlib.machinery
 import importlib.util
+import os
 import sys
 from pathlib import Path
-
-import pytest
 
 PROJECT_ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
@@ -31,15 +34,38 @@ _MODULES = {
 }
 
 
-def _register_module(module_name: str, file_path: str) -> None:
-    full_path = PROJECT_ROOT / file_path
-    if not full_path.exists():
-        return
-    spec = importlib.util.spec_from_file_location(module_name, str(full_path))
-    mod = importlib.util.module_from_spec(spec)
-    sys.modules[module_name] = mod
-    spec.loader.exec_module(mod)
+class _LazyAppFinder(importlib.abc.MetaPathFinder):
+    """Meta-path finder that lazily loads app modules on first import."""
+
+    def find_module(self, fullname, path=None):
+        if fullname in _MODULES:
+            return self
+        return None
+
+    def load_module(self, fullname):
+        if fullname in sys.modules:
+            return sys.modules[fullname]
+        file_path = str(PROJECT_ROOT / _MODULES[fullname])
+        spec = importlib.util.spec_from_file_location(fullname, file_path)
+        mod = importlib.util.module_from_spec(spec)
+        sys.modules[fullname] = mod
+        spec.loader.exec_module(mod)
+        return mod
 
 
-for _name, _path in _MODULES.items():
-    _register_module(_name, _path)
+sys.meta_path.insert(0, _LazyAppFinder())
+
+
+def _ensure_app_dirs():
+    """Create app data directories so module imports don't fail in CI."""
+    app_dirs = [
+        ".competitive-intel", ".discovery", ".outbound-email",
+        ".playbook", ".prompt-builder", ".icp-scorer",
+        ".pipeline", ".enrichment", ".morning-brief",
+    ]
+    home = Path.home()
+    for d in app_dirs:
+        (home / d).mkdir(exist_ok=True)
+
+
+_ensure_app_dirs()

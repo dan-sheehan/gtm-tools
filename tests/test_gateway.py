@@ -11,9 +11,8 @@ def test_hub_page_contains_all_apps():
     assert "/playbook/" in app_gateway.HUB_PAGE
     assert "/brief/" in app_gateway.HUB_PAGE
     assert "/prompts/" in app_gateway.HUB_PAGE
-    assert "/icp-scorer/" in app_gateway.HUB_PAGE
-    assert "/pipeline/" in app_gateway.HUB_PAGE
-    assert "/enrichment/" in app_gateway.HUB_PAGE
+    assert "/gtm-trends/" in app_gateway.HUB_PAGE
+    assert "/prompt-builder/" in app_gateway.HUB_PAGE
 
 
 def test_hub_page_is_valid_html():
