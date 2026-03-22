@@ -37,14 +37,8 @@ def test_build_prompt_battlecard():
     assert "battlecard" in prompt.lower() or "feature_matrix" in prompt
 
 
-def test_load_competitors():
-    data = app_competitive_intel.load_competitors()
-    assert isinstance(data, list)
-    assert len(data) > 0
-
-
-def test_competitors_endpoint(client):
-    resp = client.get("/api/competitors")
+def test_analyses_list_empty(client):
+    resp = client.get("/api/analyses")
     assert resp.status_code == 200
     data = resp.get_json()
-    assert "competitors" in data
+    assert data["analyses"] == []

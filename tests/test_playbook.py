@@ -35,8 +35,8 @@ def test_playbooks_list_empty(client):
 
 def test_build_prompt():
     prompt = app_playbook.build_prompt({
-        "company_name": "Acme Corp",
-        "segment": "mid-market",
-        "product": "CRM Platform",
+        "product_name": "CRM Platform",
+        "product_desc": "Enterprise CRM for sales teams",
+        "customer_segment": "mid-market",
     })
-    assert "Acme Corp" in prompt
+    assert "CRM Platform" in prompt

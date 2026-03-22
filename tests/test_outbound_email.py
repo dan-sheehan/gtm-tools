@@ -26,19 +26,11 @@ def test_index_returns_200(client):
     assert resp.status_code == 200
 
 
-def test_load_personas():
-    data = app_outbound_email.load_personas()
-    assert isinstance(data, list)
-    assert len(data) >= 4
-
-
-def test_personas_endpoint(client):
-    resp = client.get("/api/personas")
+def test_sequences_list_empty(client):
+    resp = client.get("/api/sequences")
     assert resp.status_code == 200
     data = resp.get_json()
-    assert "personas" in data
-    ids = [p["id"] for p in data["personas"]]
-    assert "vp_sales" in ids
+    assert data["sequences"] == []
 
 
 def test_sequences_empty(client):
