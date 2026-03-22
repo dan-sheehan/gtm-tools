@@ -138,14 +138,6 @@ def create_app(prefix: str = "") -> Flask:
     def api_model():
         return jsonify(load_model())
 
-    @app.route("/api/model", methods=["PUT"])
-    def api_update_model():
-        data = request.get_json(silent=True)
-        if not data:
-            return jsonify({"error": "No data provided"}), 400
-        MODEL_PATH.write_text(json.dumps(data, indent=2))
-        return jsonify({"status": "updated"})
-
     @app.route("/api/score", methods=["POST"])
     def api_score():
         data = request.get_json(silent=True) or {}
