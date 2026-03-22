@@ -21,8 +21,8 @@ Local-first. No SaaS dependencies. Clone, install, run.
 ## Quick start
 
 ```bash
-git clone https://github.com/dss90-is-afk/gtm-tools.git
-cd gtm-tools
+git clone https://github.com/dan-sheehan/gtm-eng-toolkit.git
+cd gtm-eng-toolkit
 make install
 make start
 # Open http://localhost:8000
