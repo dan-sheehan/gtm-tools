@@ -9,7 +9,6 @@ cd "$DIR"
 stop_all() {
   echo "Stopping all apps..."
   pkill -f "gateway.py serve" 2>/dev/null
-  pkill -f "prompts.py serve" 2>/dev/null
   pkill -f "brief.py serve" 2>/dev/null
   pkill -f "playbook.py serve" 2>/dev/null
   pkill -f "discovery.py serve" 2>/dev/null
@@ -24,7 +23,6 @@ start_all() {
   stop_all 2>/dev/null
 
   echo "Starting apps..."
-  python3 apps/prompts/prompts.py serve --port 3002 --prefix /prompts &
   python3 apps/morning-brief/brief.py serve --port 3003 --prefix /brief &
   python3 apps/playbook/playbook.py serve --port 3004 --prefix /playbook &
   python3 apps/discovery/discovery.py serve --port 3005 --prefix /discovery &
@@ -44,7 +42,7 @@ start_all() {
 
 show_status() {
   echo "App status:"
-  for name in gateway prompts brief playbook discovery; do
+  for name in gateway brief playbook discovery; do
     if pgrep -f "${name}.py serve" >/dev/null 2>&1; then
       echo "  $name: running"
     else

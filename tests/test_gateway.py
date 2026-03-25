@@ -10,7 +10,6 @@ def test_hub_page_contains_all_apps():
     assert "/outbound-email/" in app_gateway.HUB_PAGE
     assert "/playbook/" in app_gateway.HUB_PAGE
     assert "/brief/" in app_gateway.HUB_PAGE
-    assert "/prompts/" in app_gateway.HUB_PAGE
     assert "/gtm-trends/" in app_gateway.HUB_PAGE
     assert "/prompt-builder/" in app_gateway.HUB_PAGE
 

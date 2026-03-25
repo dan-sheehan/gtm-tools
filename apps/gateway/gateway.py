@@ -2,7 +2,6 @@
 """Reverse proxy gateway for GTM tools.
 
 Routes requests by path prefix to backend app servers:
-    /prompts/*          -> localhost:3002
     /brief/*            -> localhost:3003
     /playbook/*         -> localhost:3004
     /discovery/*        -> localhost:3005
@@ -20,7 +19,6 @@ import urllib.error
 DEFAULT_PORT = 8000
 
 ROUTES = {
-    "/prompts":          ("127.0.0.1", 3002),
     "/brief":            ("127.0.0.1", 3003),
     "/playbook":         ("127.0.0.1", 3004),
     "/discovery":        ("127.0.0.1", 3005),
@@ -238,22 +236,6 @@ HUB_PAGE = """\
           <div class="card-tag">
             <svg viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
             Productivity
-          </div>
-        </div>
-      </a>
-
-      <a class="card" href="/prompts/">
-        <div class="card-header bg-coral">
-          <div class="card-icon">
-            <svg viewBox="0 0 48 48"><path d="M40 30c0 8-7.2 14-16 14S8 38 8 30"/><path d="M8 18c0-8 7.2-14 16-14s16 6 16 14"/><line x1="18" y1="22" x2="18" y2="26"/><line x1="30" y1="22" x2="30" y2="26"/><path d="M20 32c2 2 6 2 8 0"/></svg>
-          </div>
-        </div>
-        <div class="card-body">
-          <div class="card-title">Prompts</div>
-          <div class="card-desc">Prompt library browser</div>
-          <div class="card-tag">
-            <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
-            AI
           </div>
         </div>
       </a>

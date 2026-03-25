@@ -1,7 +1,1 @@
 Flask>=3.0
-click>=8.0
-markdown-it-py>=3.0
-mdurl>=0.1
-Pygments>=2.0
-pyperclip>=1.8
-rich>=13.0

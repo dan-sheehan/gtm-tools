@@ -21,7 +21,7 @@ _APP_DIRS = [
     ".competitive-intel", ".discovery", ".outbound-email",
     ".playbook", ".prompt-builder", ".icp-scorer",
     ".pipeline", ".enrichment", ".morning-brief",
-    ".prompts", ".gtm-trends",
+    ".gtm-trends",
 ]
 for _d in _APP_DIRS:
     (Path.home() / _d).mkdir(exist_ok=True)
@@ -29,7 +29,6 @@ for _d in _APP_DIRS:
 # Map importable module names to their file paths
 _MODULES = {
     "app_gateway": "apps/gateway/gateway.py",
-    "app_prompts": "apps/prompts/prompts.py",
     "app_morning_brief": "apps/morning-brief/brief.py",
     "app_playbook": "apps/playbook/playbook.py",
     "app_discovery": "apps/discovery/discovery.py",

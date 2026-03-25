@@ -5,16 +5,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-pip install -r requirements.txt   # Install dependencies (Flask, Click, Rich, etc.)
+pip install -r requirements.txt   # Install dependencies (Flask)
 ./hub start                        # Start all apps + gateway (runs in foreground)
 ./hub stop                         # Stop all apps
 ./hub status                       # Check what's running
-
-# Run a single app standalone
-python3 apps/prompts/prompts.py serve --port 3002 --prefix /prompts
-
-# CLI tools (prompts app)
-python3 apps/prompts/cli/main.py --help
 ```
 
 ## Architecture
@@ -24,7 +18,6 @@ python3 apps/prompts/cli/main.py --help
 | App | Port | Prefix | Key file |
 |-----|------|--------|----------|
 | Gateway | 8000 | — | `apps/gateway/gateway.py` |
-| Prompts | 3002 | `/prompts` | `apps/prompts/prompts.py` |
 | Morning Brief | 3003 | `/brief` | `apps/morning-brief/brief.py` |
 | Playbook | 3004 | `/playbook` | `apps/playbook/playbook.py` |
 | Discovery | 3005 | `/discovery` | `apps/discovery/discovery.py` |
