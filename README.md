@@ -49,6 +49,16 @@ make seed     # Load sample data (optional — skip if you have Claude CLI)
 # Open http://localhost:8000
 ```
 
+## Screenshots
+
+![Hub — all tools organized by workflow](docs/screenshots/hub.png)
+
+![Enrichment — multi-step company research pipeline](docs/screenshots/enrichment.png)
+
+![Outbound Email — AI-generated 4-touch cadence](docs/screenshots/outbound-email.png)
+
+![Pipeline — deal tracking with stage-weighted metrics](docs/screenshots/pipeline.png)
+
 ## Architecture
 
 **Gateway pattern** — One entry point at `localhost:8000` routes to independent backends by path prefix. Each app is a standalone Flask server that can run independently on its own port.
