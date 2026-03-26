@@ -5,11 +5,23 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ## Commands
 
 ```bash
-pip install -r requirements.txt   # Install dependencies (Flask)
+pip install -r requirements.txt   # Install dependencies (Flask>=3.0, only dependency)
 ./hub start                        # Start all apps + gateway (runs in foreground)
 ./hub stop                         # Stop all apps
 ./hub status                       # Check what's running
+make seed                          # Load sample data into all apps (idempotent)
+make test                          # Run pytest
+pytest tests/test_pipeline.py      # Run a single test file
+make lint                          # Run ruff check apps/
 ```
+
+**Run a single app standalone** (useful for development):
+```bash
+python3 apps/pipeline/pipeline.py serve --port 3010
+python3 apps/pipeline/pipeline.py serve --port 3010 --prefix /pipeline  # with gateway prefix
+```
+
+Each app CLI also supports `start` (daemonize), `stop`, and `status` subcommands.
 
 ## Architecture
 
@@ -36,3 +48,15 @@ pip install -r requirements.txt   # Install dependencies (Flask)
 **AI integration**: Playbook and the 4 sales tools (Discovery, Competitive Intel, Prompt Builder, Outbound Email) invoke `claude -p` via `subprocess` and stream output to the browser using SSE (Server-Sent Events). Sales tools pass `--allowedTools WebSearch,WebFetch` for web research.
 
 **Morning Brief**: Uses MCP servers (Gmail, Calendar, Notion) via Claude Code to fetch data into `~/.morning-brief/latest.json`, then renders via Flask.
+
+**Seed data**: Most apps support `POST /api/seed` to load sample data for demo mode. `make seed` hits all endpoints.
+
+## Testing
+
+Tests live in `tests/` and run with pytest. CI (GitHub Actions) runs `ruff check` + `pytest` on Python 3.10 and 3.12.
+
+**Critical pattern**: App directories have hyphens (e.g. `competitive-intel`), so they can't be imported normally. `tests/conftest.py` uses `importlib` to load each app module and registers them as `app_gateway`, `app_enrichment`, `app_competitive_intel`, etc. Tests import these registered module names.
+
+## Style
+
+Ruff with line-length 120, target py39. Python >=3.10 required.
