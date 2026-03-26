@@ -1,0 +1,185 @@
+[
+  {
+    "company": "Datadog",
+    "result": {
+      "web_research": {
+        "product_description": "Cloud-scale monitoring and security platform providing infrastructure monitoring, APM, log management, real-user monitoring, and security monitoring for modern cloud environments.",
+        "target_market": "Engineering and DevOps teams at mid-market to enterprise companies running cloud-native infrastructure. Primary verticals include SaaS, fintech, e-commerce, and media.",
+        "leadership": [
+          {"name": "Olivier Pomel", "title": "Co-founder & CEO"},
+          {"name": "Alexis Lê-Quôc", "title": "Co-founder & CTO"},
+          {"name": "David Obstler", "title": "CFO"}
+        ],
+        "company_size": "5,000+ employees",
+        "location": "New York, NY (headquarters) with offices in Boston, Dublin, Paris, Tokyo, Sydney",
+        "recent_news": [
+          "Launched AI-powered Watchdog Insights for automated root cause analysis",
+          "Acquired Sqreen for application security monitoring",
+          "Expanded serverless monitoring with enhanced AWS Lambda integration",
+          "Q4 FY2025 revenue exceeded $2.1B ARR"
+        ]
+      },
+      "tech_stack": {
+        "languages": ["Go", "Python", "Java", "Ruby", "JavaScript", "TypeScript"],
+        "frameworks": ["React", "Django", "Kafka", "gRPC"],
+        "infrastructure": ["AWS", "GCP", "Kubernetes", "Terraform", "Docker"],
+        "data_tools": ["Apache Kafka", "ClickHouse", "Elasticsearch", "Redis", "PostgreSQL"],
+        "sales_tools": ["Salesforce", "Outreach", "Gong", "ZoomInfo"],
+        "confidence": "high"
+      },
+      "funding_signals": {
+        "funding_rounds": [
+          {"round": "Series A", "amount": "$7.3M", "date": "2012-07", "investors": "Index Ventures, RTP Ventures"},
+          {"round": "Series B", "amount": "$31M", "date": "2014-01", "investors": "Index Ventures, OpenView Venture Partners"},
+          {"round": "Series C", "amount": "$94.5M", "date": "2016-01", "investors": "ICONIQ Capital, Index Ventures"},
+          {"round": "IPO", "amount": "$648M", "date": "2019-09", "investors": "NASDAQ: DDOG"}
+        ],
+        "total_raised": "$148M pre-IPO",
+        "hiring_signals": "Aggressively hiring across engineering, sales, and customer success. 200+ open roles, heavy emphasis on AI/ML engineers and enterprise AEs.",
+        "growth_indicators": [
+          "Revenue growth of 25% YoY",
+          "Net revenue retention rate above 120%",
+          "Expanding product suite into security and CI/CD observability",
+          "New Tokyo and Sydney office expansions"
+        ]
+      },
+      "competitive_landscape": {
+        "direct_competitors": [
+          {"name": "New Relic", "overlap": "Full-stack observability, APM, infrastructure monitoring"},
+          {"name": "Dynatrace", "overlap": "AI-powered observability, APM, infrastructure monitoring"},
+          {"name": "Splunk", "overlap": "Log management, security monitoring, infrastructure monitoring"}
+        ],
+        "adjacent_competitors": [
+          {"name": "Grafana Labs", "overlap": "Open-source dashboarding and metrics visualization"},
+          {"name": "PagerDuty", "overlap": "Incident management and alerting"},
+          {"name": "Elastic", "overlap": "Log aggregation and search"}
+        ],
+        "differentiation": "Unified platform approach with 20+ integrated products, strong developer experience, and usage-based pricing that scales with infrastructure. Deep integrations across the entire DevOps toolchain.",
+        "market_position": "Market leader in cloud-native observability, consistently ranked #1 in Gartner Magic Quadrant for APM and Observability"
+      }
+    },
+    "steps_completed": 4
+  },
+  {
+    "company": "Stripe",
+    "result": {
+      "web_research": {
+        "product_description": "Financial infrastructure platform providing payment processing, billing, fraud prevention, banking-as-a-service, and revenue optimization tools for internet businesses of all sizes.",
+        "target_market": "Software companies and internet businesses — from startups to Fortune 500. Primary verticals include SaaS, marketplaces, e-commerce platforms, and on-demand services.",
+        "leadership": [
+          {"name": "Patrick Collison", "title": "Co-founder & CEO"},
+          {"name": "John Collison", "title": "Co-founder & President"},
+          {"name": "David Singleton", "title": "CTO"}
+        ],
+        "company_size": "8,000+ employees",
+        "location": "San Francisco, CA and Dublin, Ireland (dual HQ), with offices in 20+ cities worldwide",
+        "recent_news": [
+          "Launched Stripe Billing v3 with AI-powered revenue recovery",
+          "Expanded Stripe Financial Connections for open banking integrations",
+          "Introduced embedded finance components for platform partners",
+          "Processing over $1 trillion in total payment volume annually"
+        ]
+      },
+      "tech_stack": {
+        "languages": ["Ruby", "Java", "Go", "Scala", "Python", "TypeScript"],
+        "frameworks": ["React", "Sorbet (Ruby type checker)", "gRPC", "GraphQL"],
+        "infrastructure": ["AWS", "Kubernetes", "Terraform", "Envoy", "Docker"],
+        "data_tools": ["Apache Spark", "Apache Kafka", "Presto", "Redis", "MongoDB"],
+        "sales_tools": ["Salesforce", "Clari", "Gong", "LinkedIn Sales Navigator"],
+        "confidence": "high"
+      },
+      "funding_signals": {
+        "funding_rounds": [
+          {"round": "Series A", "amount": "$2M", "date": "2012-02", "investors": "Sequoia Capital, Peter Thiel"},
+          {"round": "Series B", "amount": "$20M", "date": "2013-03", "investors": "General Catalyst, Sequoia Capital"},
+          {"round": "Series C", "amount": "$80M", "date": "2014-12", "investors": "Founders Fund, Khosla Ventures"},
+          {"round": "Series I", "amount": "$6.5B", "date": "2023-03", "investors": "Sequoia, a16z, GIC, Goldman Sachs"}
+        ],
+        "total_raised": "$8.7B+",
+        "hiring_signals": "Selective hiring focused on senior engineering and enterprise sales roles. ~150 open positions, emphasis on payments infrastructure and compliance engineers.",
+        "growth_indicators": [
+          "Revenue surpassed $14B in 2023",
+          "Expanding into issuing and treasury management",
+          "Growing enterprise segment with dedicated sales teams",
+          "International expansion into Southeast Asia and Latin America"
+        ]
+      },
+      "competitive_landscape": {
+        "direct_competitors": [
+          {"name": "Adyen", "overlap": "Payment processing, especially enterprise and marketplace"},
+          {"name": "Braintree (PayPal)", "overlap": "Online payment processing, developer APIs"},
+          {"name": "Square (Block)", "overlap": "Payment processing, developer tools, financial services"}
+        ],
+        "adjacent_competitors": [
+          {"name": "Plaid", "overlap": "Financial data connectivity and open banking"},
+          {"name": "Chargebee", "overlap": "Subscription billing and revenue management"},
+          {"name": "Checkout.com", "overlap": "Enterprise payment processing"}
+        ],
+        "differentiation": "Developer-first approach with exceptionally clean APIs and documentation. Broadest product suite spanning payments, billing, identity, issuing, treasury, and financial connections — enabling companies to build complete financial infrastructure on a single platform.",
+        "market_position": "Market leader in online payment infrastructure for internet businesses, de facto standard for developer-first payments"
+      }
+    },
+    "steps_completed": 4
+  },
+  {
+    "company": "Figma",
+    "result": {
+      "web_research": {
+        "product_description": "Collaborative design platform for UI/UX design, prototyping, developer handoff, and design systems management. Browser-based with real-time multiplayer collaboration.",
+        "target_market": "Product design teams at software companies, from startups to enterprise. Used by designers, product managers, and developers across all industries building digital products.",
+        "leadership": [
+          {"name": "Dylan Field", "title": "Co-founder & CEO"},
+          {"name": "Evan Wallace", "title": "Co-founder & CTO"},
+          {"name": "Yuhki Yamashita", "title": "Chief Product Officer"}
+        ],
+        "company_size": "1,500+ employees",
+        "location": "San Francisco, CA with offices in New York, London, and Tokyo",
+        "recent_news": [
+          "Launched Figma AI with auto-layout suggestions and design generation",
+          "Introduced Figma Slides for presentation design",
+          "Dev Mode general availability for improved design-to-code handoff",
+          "Growing FigJam whiteboarding tool adoption in enterprise"
+        ]
+      },
+      "tech_stack": {
+        "languages": ["TypeScript", "C++", "Rust", "Go", "Python"],
+        "frameworks": ["React", "WebAssembly", "WebGL", "Node.js"],
+        "infrastructure": ["AWS", "Kubernetes", "Terraform", "CloudFront"],
+        "data_tools": ["PostgreSQL", "Redis", "Elasticsearch", "BigQuery"],
+        "sales_tools": ["Salesforce", "Outreach", "Gong", "Clearbit"],
+        "confidence": "high"
+      },
+      "funding_signals": {
+        "funding_rounds": [
+          {"round": "Series A", "amount": "$14M", "date": "2015-12", "investors": "Greylock Partners, Index Ventures"},
+          {"round": "Series B", "amount": "$25M", "date": "2018-02", "investors": "Kleiner Perkins, Greylock"},
+          {"round": "Series C", "amount": "$50M", "date": "2019-04", "investors": "Sequoia Capital, Greylock"},
+          {"round": "Series E", "amount": "$200M", "date": "2021-06", "investors": "Durable Capital, a16z"}
+        ],
+        "total_raised": "$332M",
+        "hiring_signals": "Targeted hiring in AI/ML, enterprise sales, and platform engineering. ~80 open roles with focus on growing the enterprise GTM motion.",
+        "growth_indicators": [
+          "ARR exceeded $600M",
+          "Enterprise customer base doubled year-over-year",
+          "Launching adjacent products (Slides, AI features)",
+          "Strong PLG motion driving bottom-up adoption"
+        ]
+      },
+      "competitive_landscape": {
+        "direct_competitors": [
+          {"name": "Sketch", "overlap": "UI design tool, design systems"},
+          {"name": "Adobe XD", "overlap": "UI/UX design and prototyping"},
+          {"name": "InVision", "overlap": "Design prototyping and collaboration"}
+        ],
+        "adjacent_competitors": [
+          {"name": "Canva", "overlap": "Visual design, expanding into product design"},
+          {"name": "Miro", "overlap": "Collaborative whiteboarding (vs FigJam)"},
+          {"name": "Framer", "overlap": "Design-to-production website builder"}
+        ],
+        "differentiation": "Browser-native with real-time multiplayer collaboration, eliminating file syncing issues. WebAssembly-powered rendering engine delivers desktop-class performance in the browser. Strongest network effects in design tooling — collaboration drives organic adoption.",
+        "market_position": "Dominant market leader in collaborative product design, displacing Adobe and Sketch across all company sizes"
+      }
+    },
+    "steps_completed": 4
+  }
+]

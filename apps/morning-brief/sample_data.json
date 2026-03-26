@@ -1,0 +1,73 @@
+{
+  "generated_at": "2026-03-25T08:30:00Z",
+  "signals": {
+    "pipeline": [
+      {
+        "title": "NovaStar AI deal stalling in negotiation",
+        "description": "$200K deal has been in negotiation for 15 days — 2x average for this stage. Last activity was 5 days ago. Risk of going dark.",
+        "severity": "high"
+      },
+      {
+        "title": "Meridian Health proposal overdue",
+        "description": "$150K deal has been in proposal stage for 20 days with close date of April 5. Proposal may need refreshing or champion re-engagement.",
+        "severity": "high"
+      },
+      {
+        "title": "Strong Q2 pipeline building",
+        "description": "3 new deals added to discovery stage this week totaling $335K. Weighted pipeline up 12% week-over-week.",
+        "severity": "low"
+      }
+    ],
+    "competitive": [
+      {
+        "title": "New Relic launched consumption pricing",
+        "description": "New Relic eliminated per-seat licensing in favor of consumption-based pricing. This could impact our mid-market positioning against them — update battlecards.",
+        "severity": "high"
+      },
+      {
+        "title": "Grafana Labs Series D announcement",
+        "description": "Grafana Labs raised $240M at $6B valuation, signaling major push into enterprise observability. Expect increased competitive pressure in open-source-friendly accounts.",
+        "severity": "medium"
+      },
+      {
+        "title": "HubSpot expanding into AI-powered outbound",
+        "description": "HubSpot launched AI email writer in Sales Hub. Feature parity increasing in mid-market CRM segment.",
+        "severity": "medium"
+      }
+    ],
+    "accounts": [
+      {
+        "title": "Figma Dev Mode went GA",
+        "description": "Figma launched Dev Mode to general availability — expanding their platform surface area. Good trigger for outreach to their engineering leadership about observability needs.",
+        "severity": "medium"
+      },
+      {
+        "title": "Notion crossed 100M users",
+        "description": "Notion announced 100M+ users milestone. Their enterprise push is accelerating — revisit our outbound sequence targeting their RevOps team.",
+        "severity": "low"
+      },
+      {
+        "title": "Stripe layoffs in recruiting team",
+        "description": "Stripe reduced recruiting team by 15%. Not affecting engineering or sales orgs. Monitor but no immediate action needed on our active deal.",
+        "severity": "low"
+      }
+    ],
+    "market": [
+      {
+        "title": "AI observability becoming a category",
+        "description": "Three new startups announced AI/ML observability products this month. Market is validating the need — position our AI monitoring capabilities in upcoming demos.",
+        "severity": "medium"
+      },
+      {
+        "title": "SOC 2 becoming table stakes for Series A+",
+        "description": "Seeing increasing pattern of Series A+ companies requiring SOC 2 compliance from vendors. Ensure our compliance story is front and center in enterprise deals.",
+        "severity": "low"
+      },
+      {
+        "title": "DevOps hiring down 8% QoQ",
+        "description": "Job postings for DevOps/SRE roles declined 8% quarter-over-quarter. Platform engineering roles up 15%. Adjust messaging from 'DevOps tools' to 'platform engineering'.",
+        "severity": "medium"
+      }
+    ]
+  }
+}

@@ -318,6 +318,24 @@ def create_app(prefix=""):
         conn.commit()
         return jsonify({"success": True})
 
+    @app.route("/api/seed", methods=["POST"])
+    def api_seed():
+        seed_file = BASE_DIR / "sample_data.json"
+        if not seed_file.exists():
+            return jsonify({"error": "Sample data file not found"}), 404
+        db = get_db()
+        existing = db.execute("SELECT COUNT(*) FROM playbooks").fetchone()[0]
+        if existing > 0:
+            return jsonify({"status": "seeded", "count": 0, "message": "already seeded"})
+        seed_data = json.loads(seed_file.read_text())
+        for item in seed_data:
+            db.execute(
+                "INSERT INTO playbooks (product_name, product_desc, customer_segment, desired_outcomes, playbook_md) VALUES (?, ?, ?, ?, ?)",
+                (item["product_name"], item["product_desc"], item["customer_segment"], item["desired_outcomes"], item["playbook_md"]),
+            )
+        db.commit()
+        return jsonify({"status": "seeded", "count": len(seed_data)})
+
     return app
 
 

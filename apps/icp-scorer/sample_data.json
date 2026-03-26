@@ -1,0 +1,54 @@
+[
+  {
+    "company_name": "Vercel",
+    "dimensions": {
+      "industry_fit": "saas",
+      "company_size": "201_500",
+      "funding_stage": "series_c_plus",
+      "tech_stack": "modern_full",
+      "growth_signals": "strong",
+      "buying_signals": "inbound"
+    },
+    "score": 91,
+    "grade": "A"
+  },
+  {
+    "company_name": "Ramp",
+    "dimensions": {
+      "industry_fit": "fintech",
+      "company_size": "201_500",
+      "funding_stage": "series_c_plus",
+      "tech_stack": "modern_full",
+      "growth_signals": "strong",
+      "buying_signals": "tech_trigger"
+    },
+    "score": 86,
+    "grade": "A"
+  },
+  {
+    "company_name": "Lattice",
+    "dimensions": {
+      "industry_fit": "saas",
+      "company_size": "51_200",
+      "funding_stage": "series_b",
+      "tech_stack": "modern_partial",
+      "growth_signals": "moderate",
+      "buying_signals": "content_engaged"
+    },
+    "score": 74,
+    "grade": "B"
+  },
+  {
+    "company_name": "HealthFirst Clinic",
+    "dimensions": {
+      "industry_fit": "non_tech",
+      "company_size": "11_50",
+      "funding_stage": "bootstrapped",
+      "tech_stack": "legacy",
+      "growth_signals": "flat",
+      "buying_signals": "cold"
+    },
+    "score": 28,
+    "grade": "D"
+  }
+]

@@ -442,6 +442,24 @@ def create_app(prefix=""):
             headers={"Content-Disposition": f"attachment; filename={filename}"},
         )
 
+    @app.route("/api/seed", methods=["POST"])
+    def api_seed():
+        seed_file = BASE_DIR / "sample_data.json"
+        if not seed_file.exists():
+            return jsonify({"error": "Sample data file not found"}), 404
+        db = get_db()
+        existing = db.execute("SELECT COUNT(*) FROM sequences").fetchone()[0]
+        if existing > 0:
+            return jsonify({"status": "seeded", "count": 0, "message": "already seeded"})
+        seed_data = json.loads(seed_file.read_text())
+        for item in seed_data:
+            db.execute(
+                "INSERT INTO sequences (company_url, company_name, prospect_name, prospect_title, department, emails_json) VALUES (?, ?, ?, ?, ?, ?)",
+                (item["company_url"], item["company_name"], item["prospect_name"], item["prospect_title"], item["department"], json.dumps(item["emails"])),
+            )
+        db.commit()
+        return jsonify({"status": "seeded", "count": len(seed_data)})
+
     return app
 
 

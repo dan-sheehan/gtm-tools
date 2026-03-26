@@ -227,6 +227,25 @@ def create_app(prefix: str = "") -> Flask:
         db.commit()
         return jsonify({"status": "deleted"})
 
+    @app.route("/api/seed", methods=["POST"])
+    def api_seed():
+        seed_file = BASE_DIR / "sample_data.json"
+        if not seed_file.exists():
+            return jsonify({"error": "Sample data file not found"}), 404
+        db = get_db()
+        existing = db.execute("SELECT COUNT(*) FROM enrichments").fetchone()[0]
+        if existing > 0:
+            return jsonify({"status": "seeded", "count": 0, "message": "already seeded"})
+        seed_data = json.loads(seed_file.read_text())
+        now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
+        for item in seed_data:
+            db.execute(
+                "INSERT INTO enrichments (company, result, steps_completed, created_at) VALUES (?, ?, ?, ?)",
+                (item["company"], json.dumps(item["result"]), item["steps_completed"], now),
+            )
+        db.commit()
+        return jsonify({"status": "seeded", "count": len(seed_data)})
+
     return app
 
 

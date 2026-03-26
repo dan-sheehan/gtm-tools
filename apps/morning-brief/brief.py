@@ -75,6 +75,23 @@ def create_app(prefix=""):
         except OSError as e:
             return jsonify({"status": "error", "message": str(e)}), 500
 
+    @app.route("/api/seed", methods=["POST"])
+    def api_seed():
+        seed_file = BASE_DIR / "sample_data.json"
+        if not seed_file.exists():
+            return jsonify({"error": "Sample data file not found"}), 404
+        if JSON_PATH.exists():
+            try:
+                existing = json.loads(JSON_PATH.read_text())
+                if existing.get("generated_at") and not existing.get("error"):
+                    return jsonify({"status": "seeded", "count": 0, "message": "already seeded"})
+            except (json.JSONDecodeError, OSError):
+                pass
+        ensure_data_dir()
+        import shutil
+        shutil.copy2(seed_file, JSON_PATH)
+        return jsonify({"status": "seeded", "count": 1})
+
     return app
 
 

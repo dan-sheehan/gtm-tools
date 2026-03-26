@@ -216,9 +216,12 @@ def create_app(prefix: str = "") -> Flask:
     def api_seed():
         if not SEED_PATH.exists():
             return jsonify({"error": "Seed file not found"}), 404
+        db = get_db()
+        existing = db.execute("SELECT COUNT(*) FROM deals").fetchone()[0]
+        if existing > 0:
+            return jsonify({"status": "seeded", "count": 0, "message": "already seeded"})
         seed_data = json.loads(SEED_PATH.read_text())
         now = datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%S")
-        db = get_db()
         for deal in seed_data:
             db.execute(
                 "INSERT INTO deals (company, contact, value, stage, days_in_stage, close_date, created_at) VALUES (?, ?, ?, ?, ?, ?, ?)",

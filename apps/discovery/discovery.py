@@ -483,6 +483,24 @@ def create_app(prefix=""):
     def api_companies():
         return jsonify({"companies": list_company_contexts()})
 
+    @app.route("/api/seed", methods=["POST"])
+    def api_seed():
+        seed_file = BASE_DIR / "sample_data.json"
+        if not seed_file.exists():
+            return jsonify({"error": "Sample data file not found"}), 404
+        db = get_db()
+        existing = db.execute("SELECT COUNT(*) FROM preps").fetchone()[0]
+        if existing > 0:
+            return jsonify({"status": "seeded", "count": 0, "message": "already seeded"})
+        seed_data = json.loads(seed_file.read_text())
+        for item in seed_data:
+            db.execute(
+                "INSERT INTO preps (company_url, company_name, prospect_name, selling_as, company_bullets, prospect_data, raw_markdown) VALUES (?, ?, ?, ?, ?, ?, ?)",
+                (item["company_url"], item["company_name"], item["prospect_name"], item.get("selling_as", ""), json.dumps(item["company_bullets"]), json.dumps(item["prospect_data"]), item["raw_markdown"]),
+            )
+        db.commit()
+        return jsonify({"status": "seeded", "count": len(seed_data)})
+
     return app
 
 

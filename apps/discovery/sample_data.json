@@ -1,0 +1,74 @@
+[
+  {
+    "company_url": "https://www.datadog.com",
+    "company_name": "Datadog",
+    "prospect_name": "Olivier Pomel",
+    "selling_as": "infrastructure monitoring platform",
+    "company_bullets": {
+      "name": "Datadog",
+      "bullets": [
+        "Cloud-native monitoring and security platform with 20+ integrated products",
+        "Public company (NASDAQ: DDOG) with $2.1B+ ARR and 25% YoY growth",
+        "5,000+ employees across NYC, Boston, Dublin, Paris, Tokyo, Sydney",
+        "Aggressively expanding from observability into cloud security (SIEM, CSPM)",
+        "Key customers include Samsung, Whole Foods, Peloton, and 26,000+ organizations",
+        "Recently launched AI-powered Watchdog Insights for automated root cause analysis",
+        "Usage-based pricing model creates strong expansion revenue from existing customers"
+      ]
+    },
+    "prospect_data": {
+      "name": "Olivier Pomel",
+      "current_role": "Co-founder & CEO at Datadog",
+      "linkedin_url": "https://www.linkedin.com/in/olivierpomel/",
+      "college": "École Centrale Paris",
+      "hobbies": "Open-source software, distributed systems, French cuisine",
+      "sports_teams": "Not publicly known",
+      "bullets": [
+        "Co-founded Datadog in 2010 with Alexis Lê-Quôc after working together at Wireless Generation",
+        "Previously worked at IBM Research on large-scale data processing systems",
+        "Technical background with deep expertise in infrastructure and DevOps",
+        "Known for product-led approach to building enterprise software",
+        "Took Datadog public in September 2019 at $7.8B valuation",
+        "Frequent speaker at AWS re:Invent, KubeCon, and Dash conferences",
+        "Strong advocate for unified observability vs. point-solution approach"
+      ]
+    },
+    "raw_markdown": "# Discovery Call Prep: Datadog\n\n## Company Overview\nDatadog is a cloud-native monitoring and security platform with 20+ integrated products. They're public (NASDAQ: DDOG) with $2.1B+ ARR and are aggressively expanding from observability into security.\n\n## Prospect: Olivier Pomel (Co-founder & CEO)\n- Technical founder with infrastructure/DevOps background\n- Previously at IBM Research and Wireless Generation\n- Product-led approach to enterprise software\n\n## Talking Points\n\n### Opening (Build Rapport)\n- Reference his recent Dash conference keynote on AI-powered observability\n- Ask about the platform expansion strategy into security\n\n### Discovery Questions\n1. As you expand into security, how are you thinking about the integration between observability data and security signals?\n2. What's the biggest challenge in maintaining the unified platform experience as you add new product lines?\n3. How does the usage-based pricing model evolve as you move into security where customers expect seat-based licensing?\n\n### Value Hooks\n- Platform consolidation story aligns with their own messaging to customers\n- Integration-first approach mirrors how they built their product suite\n- Data from 26,000+ customers creates unique cross-product insights\n\n### Watch Out For\n- Technical founder — lead with data and architecture, not slides\n- Product-led mindset — show, don't tell\n- Scale sensitivity — solutions must work at massive data volumes"
+  },
+  {
+    "company_url": "https://www.stripe.com",
+    "company_name": "Stripe",
+    "prospect_name": "Emily Zhang",
+    "selling_as": "developer tools platform",
+    "company_bullets": {
+      "name": "Stripe",
+      "bullets": [
+        "Financial infrastructure platform processing $1T+ in annual payment volume",
+        "Private company valued at $50B+, raised $8.7B total with last round at $6.5B (2023)",
+        "8,000+ employees with dual HQ in San Francisco and Dublin",
+        "Expanding beyond payments into billing, identity, issuing, treasury, and financial connections",
+        "Developer-first approach with industry-leading API documentation",
+        "Key customers include Amazon, Google, Shopify, Instacart, and millions of businesses",
+        "Known for exceptionally high engineering bar and thoughtful product design"
+      ]
+    },
+    "prospect_data": {
+      "name": "Emily Zhang",
+      "current_role": "Head of Enterprise Sales at Stripe",
+      "linkedin_url": "https://www.linkedin.com/in/emilyzhang/",
+      "college": "Stanford University (MBA), UC Berkeley (BS Computer Science)",
+      "hobbies": "Trail running, angel investing in fintech startups, mentoring first-gen college students",
+      "sports_teams": "Golden State Warriors, Stanford Cardinal",
+      "bullets": [
+        "Joined Stripe 3 years ago from Twilio where she led mid-market sales",
+        "Built Stripe's enterprise sales motion from a 15-person team to 80+",
+        "Technical background (CS degree) — comfortable in deep product conversations",
+        "Advocates for consultative selling approach over transactional",
+        "Active angel investor in fintech and developer tools space",
+        "Board advisor at two Series A startups in the payments infrastructure space",
+        "Regular speaker at SaaStr Annual on product-led sales motions"
+      ]
+    },
+    "raw_markdown": "# Discovery Call Prep: Stripe\n\n## Company Overview\nStripe is the dominant financial infrastructure platform, processing $1T+ in annual payments. They're expanding aggressively beyond payments into a full financial platform (billing, identity, issuing, treasury).\n\n## Prospect: Emily Zhang (Head of Enterprise Sales)\n- Former Twilio mid-market sales leader\n- CS degree from Berkeley — technically fluent\n- Built Stripe's enterprise sales org from 15 to 80+ people\n- Angel investor in fintech and dev tools\n\n## Talking Points\n\n### Opening (Build Rapport)\n- Reference her SaaStr talk on product-led sales motions\n- Ask about the transition from PLG-only to PLG + enterprise sales at Stripe\n- Trail running connection if relevant (ask about recent races)\n\n### Discovery Questions\n1. How does your enterprise sales team leverage product usage data to identify and prioritize opportunities?\n2. What's the biggest challenge in selling a developer-first product to enterprise buyers who aren't developers?\n3. As Stripe expands beyond payments, how is the sales motion evolving for products like Treasury and Issuing?\n\n### Value Hooks\n- Our tools help enterprise sales teams at PLG companies surface the right accounts at the right time\n- Enrichment data + product signals = better lead scoring for enterprise targets\n- Case studies from other developer-first companies making the PLG-to-enterprise transition\n\n### Watch Out For\n- Technical buyer — don't oversimplify, she'll see through it\n- Consultative seller herself — be genuine, skip the playbook\n- Stripe's engineering culture — anything that feels \"black box\" will be a hard sell\n- Angel investor lens — she'll evaluate your product through an investor's eye too"
+  }
+]
