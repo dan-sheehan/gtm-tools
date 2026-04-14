@@ -43,9 +43,11 @@ def load_brief():
 # ---------------------------------------------------------------------------
 
 def create_app(prefix=""):
+    static_path = prefix + "/static" if prefix else "/static"
     app = Flask(
         __name__,
         static_folder=str(BASE_DIR / "static"),
+        static_url_path=static_path,
         template_folder=str(BASE_DIR / "templates"),
     )
     app.config["URL_PREFIX"] = prefix
@@ -54,15 +56,15 @@ def create_app(prefix=""):
     def inject_prefix():
         return {"prefix": app.config["URL_PREFIX"]}
 
-    @app.route("/")
+    @app.route(prefix + "/")
     def index():
         return render_template("index.html")
 
-    @app.route("/api/brief", methods=["GET"])
+    @app.route(prefix + "/api/brief", methods=["GET"])
     def api_brief():
         return jsonify(load_brief())
 
-    @app.route("/api/refresh", methods=["POST"])
+    @app.route(prefix + "/api/refresh", methods=["POST"])
     def api_refresh():
         try:
             subprocess.Popen(
@@ -75,7 +77,7 @@ def create_app(prefix=""):
         except OSError as e:
             return jsonify({"status": "error", "message": str(e)}), 500
 
-    @app.route("/api/seed", methods=["POST"])
+    @app.route(prefix + "/api/seed", methods=["POST"])
     def api_seed():
         seed_file = BASE_DIR / "sample_data.json"
         if not seed_file.exists():

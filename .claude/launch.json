@@ -2,12 +2,6 @@
   "version": "0.0.1",
   "configurations": [
     {
-      "name": "prompts",
-      "runtimeExecutable": "python3",
-      "runtimeArgs": ["apps/prompts/prompts.py", "serve", "--port", "3002", "--prefix", "/prompts"],
-      "port": 3002
-    },
-    {
       "name": "morning-brief",
       "runtimeExecutable": "python3",
       "runtimeArgs": ["apps/morning-brief/brief.py", "serve", "--port", "3003"],

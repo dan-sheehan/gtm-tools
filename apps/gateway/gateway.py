@@ -370,9 +370,8 @@ class GatewayHandler(http.server.BaseHTTPRequestHandler):
                     self.end_headers()
                     return
 
-                # Strip prefix to get backend path
-                backend_path = self.path[len(prefix):] or "/"
-                self._forward(host, port, backend_path, prefix)
+                # Forward full path — backends register routes with prefix
+                self._forward(host, port, self.path)
                 return
 
         # No route matched
@@ -386,7 +385,7 @@ class GatewayHandler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
         self.wfile.write(body)
 
-    def _forward(self, host, port, path, prefix):
+    def _forward(self, host, port, path):
         url = f"http://{host}:{port}{path}"
 
         # Read request body if present
@@ -408,15 +407,11 @@ class GatewayHandler(http.server.BaseHTTPRequestHandler):
                 status = resp.status
                 self.send_response(status)
 
-                # Forward response headers, rewriting Location for redirects
+                # Forward response headers
                 for key, value in resp.getheaders():
                     lower = key.lower()
                     if lower in ("transfer-encoding", "connection"):
                         continue
-                    if lower == "location":
-                        # Prepend prefix to redirect paths
-                        if value.startswith("/"):
-                            value = prefix + value
                     self.send_header(key, value)
                 self.end_headers()
 

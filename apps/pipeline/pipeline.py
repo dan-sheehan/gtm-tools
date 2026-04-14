@@ -76,9 +76,11 @@ def close_db(exc: BaseException | None = None) -> None:
 # ---------------------------------------------------------------------------
 
 def create_app(prefix: str = "") -> Flask:
+    static_path = prefix + "/static" if prefix else "/static"
     app = Flask(
         __name__,
         static_folder=str(BASE_DIR / "static"),
+        static_url_path=static_path,
         template_folder=str(BASE_DIR / "templates"),
     )
     app.config["URL_PREFIX"] = prefix
@@ -88,11 +90,11 @@ def create_app(prefix: str = "") -> Flask:
     def inject_prefix() -> dict[str, str]:
         return {"prefix": app.config["URL_PREFIX"]}
 
-    @app.route("/")
+    @app.route(prefix + "/")
     def index():
         return render_template("index.html")
 
-    @app.route("/api/deals", methods=["GET"])
+    @app.route(prefix + "/api/deals", methods=["GET"])
     def api_deals():
         db = get_db()
         stage_filter = request.args.get("stage")
@@ -104,7 +106,7 @@ def create_app(prefix: str = "") -> Flask:
             rows = db.execute("SELECT * FROM deals ORDER BY created_at DESC").fetchall()
         return jsonify({"deals": [dict(r) for r in rows]})
 
-    @app.route("/api/deals", methods=["POST"])
+    @app.route(prefix + "/api/deals", methods=["POST"])
     def api_create_deal():
         data = request.get_json(silent=True) or {}
         company = data.get("company", "").strip()
@@ -128,7 +130,7 @@ def create_app(prefix: str = "") -> Flask:
         db.commit()
         return jsonify({"id": cur.lastrowid, "status": "created"})
 
-    @app.route("/api/deals/<int:deal_id>", methods=["PUT"])
+    @app.route(prefix + "/api/deals/<int:deal_id>", methods=["PUT"])
     def api_update_deal(deal_id):
         data = request.get_json(silent=True) or {}
         db = get_db()
@@ -151,14 +153,14 @@ def create_app(prefix: str = "") -> Flask:
         db.commit()
         return jsonify({"status": "updated"})
 
-    @app.route("/api/deals/<int:deal_id>", methods=["DELETE"])
+    @app.route(prefix + "/api/deals/<int:deal_id>", methods=["DELETE"])
     def api_delete_deal(deal_id):
         db = get_db()
         db.execute("DELETE FROM deals WHERE id = ?", (deal_id,))
         db.commit()
         return jsonify({"status": "deleted"})
 
-    @app.route("/api/metrics", methods=["GET"])
+    @app.route(prefix + "/api/metrics", methods=["GET"])
     def api_metrics():
         db = get_db()
         rows = db.execute("SELECT * FROM deals").fetchall()
@@ -212,7 +214,7 @@ def create_app(prefix: str = "") -> Flask:
             "avg_days_in_stage": avg_days,
         })
 
-    @app.route("/api/seed", methods=["POST"])
+    @app.route(prefix + "/api/seed", methods=["POST"])
     def api_seed():
         if not SEED_PATH.exists():
             return jsonify({"error": "Seed file not found"}), 404

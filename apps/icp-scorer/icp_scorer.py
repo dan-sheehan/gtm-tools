@@ -118,9 +118,11 @@ def compute_score(
 # ---------------------------------------------------------------------------
 
 def create_app(prefix: str = "") -> Flask:
+    static_path = prefix + "/static" if prefix else "/static"
     app = Flask(
         __name__,
         static_folder=str(BASE_DIR / "static"),
+        static_url_path=static_path,
         template_folder=str(BASE_DIR / "templates"),
     )
     app.config["URL_PREFIX"] = prefix
@@ -130,15 +132,15 @@ def create_app(prefix: str = "") -> Flask:
     def inject_prefix() -> dict[str, str]:
         return {"prefix": app.config["URL_PREFIX"]}
 
-    @app.route("/")
+    @app.route(prefix + "/")
     def index():
         return render_template("index.html")
 
-    @app.route("/api/model", methods=["GET"])
+    @app.route(prefix + "/api/model", methods=["GET"])
     def api_model():
         return jsonify(load_model())
 
-    @app.route("/api/score", methods=["POST"])
+    @app.route(prefix + "/api/score", methods=["POST"])
     def api_score():
         data = request.get_json(silent=True) or {}
         company_name = data.get("company_name", "").strip()
@@ -166,7 +168,7 @@ def create_app(prefix: str = "") -> Flask:
             "breakdown": breakdown,
         })
 
-    @app.route("/api/scores", methods=["GET"])
+    @app.route(prefix + "/api/scores", methods=["GET"])
     def api_scores():
         db = get_db()
         rows = db.execute(
@@ -176,7 +178,7 @@ def create_app(prefix: str = "") -> Flask:
             "scores": [dict(r) for r in rows],
         })
 
-    @app.route("/api/scores/<int:score_id>", methods=["GET"])
+    @app.route(prefix + "/api/scores/<int:score_id>", methods=["GET"])
     def api_score_detail(score_id):
         db = get_db()
         row = db.execute("SELECT * FROM scores WHERE id = ?", (score_id,)).fetchone()
@@ -186,14 +188,14 @@ def create_app(prefix: str = "") -> Flask:
         result["dimensions"] = json.loads(result["dimensions"])
         return jsonify(result)
 
-    @app.route("/api/scores/<int:score_id>", methods=["DELETE"])
+    @app.route(prefix + "/api/scores/<int:score_id>", methods=["DELETE"])
     def api_score_delete(score_id):
         db = get_db()
         db.execute("DELETE FROM scores WHERE id = ?", (score_id,))
         db.commit()
         return jsonify({"status": "deleted"})
 
-    @app.route("/api/seed", methods=["POST"])
+    @app.route(prefix + "/api/seed", methods=["POST"])
     def api_seed():
         seed_file = BASE_DIR / "sample_data.json"
         if not seed_file.exists():

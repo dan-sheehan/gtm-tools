@@ -124,9 +124,11 @@ def run_provider(
 # ---------------------------------------------------------------------------
 
 def create_app(prefix: str = "") -> Flask:
+    static_path = prefix + "/static" if prefix else "/static"
     app = Flask(
         __name__,
         static_folder=str(BASE_DIR / "static"),
+        static_url_path=static_path,
         template_folder=str(BASE_DIR / "templates"),
     )
     app.config["URL_PREFIX"] = prefix
@@ -136,15 +138,15 @@ def create_app(prefix: str = "") -> Flask:
     def inject_prefix() -> dict[str, str]:
         return {"prefix": app.config["URL_PREFIX"]}
 
-    @app.route("/")
+    @app.route(prefix + "/")
     def index():
         return render_template("index.html")
 
-    @app.route("/api/providers", methods=["GET"])
+    @app.route(prefix + "/api/providers", methods=["GET"])
     def api_providers():
         return jsonify(load_providers())
 
-    @app.route("/api/enrich", methods=["POST"])
+    @app.route(prefix + "/api/enrich", methods=["POST"])
     def api_enrich():
         data = request.get_json(silent=True) or {}
         company = data.get("company", "").strip()
@@ -202,7 +204,7 @@ def create_app(prefix: str = "") -> Flask:
 
         return Response(generate(), content_type="text/event-stream")
 
-    @app.route("/api/enrichments", methods=["GET"])
+    @app.route(prefix + "/api/enrichments", methods=["GET"])
     def api_enrichments():
         db = get_db()
         rows = db.execute(
@@ -210,7 +212,7 @@ def create_app(prefix: str = "") -> Flask:
         ).fetchall()
         return jsonify({"enrichments": [dict(r) for r in rows]})
 
-    @app.route("/api/enrichments/<int:enrich_id>", methods=["GET"])
+    @app.route(prefix + "/api/enrichments/<int:enrich_id>", methods=["GET"])
     def api_enrichment_detail(enrich_id):
         db = get_db()
         row = db.execute("SELECT * FROM enrichments WHERE id = ?", (enrich_id,)).fetchone()
@@ -220,14 +222,14 @@ def create_app(prefix: str = "") -> Flask:
         result["result"] = json.loads(result["result"])
         return jsonify(result)
 
-    @app.route("/api/enrichments/<int:enrich_id>", methods=["DELETE"])
+    @app.route(prefix + "/api/enrichments/<int:enrich_id>", methods=["DELETE"])
     def api_enrichment_delete(enrich_id):
         db = get_db()
         db.execute("DELETE FROM enrichments WHERE id = ?", (enrich_id,))
         db.commit()
         return jsonify({"status": "deleted"})
 
-    @app.route("/api/seed", methods=["POST"])
+    @app.route(prefix + "/api/seed", methods=["POST"])
     def api_seed():
         seed_file = BASE_DIR / "sample_data.json"
         if not seed_file.exists():
