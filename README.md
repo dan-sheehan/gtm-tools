@@ -1,8 +1,8 @@
 # GTM Tools
 
-I built this to learn GTM engineering by doing it. The workflows powering outbound prospecting and sales enablement are either done manually or scattered across SaaS tools that hide how they actually work. I wanted to understand the systems underneath — enrichment pipelines, lead scoring, outbound sequencing, signal detection — so I built them from scratch.
+An open-source, local-first GTM toolkit covering the full revenue lifecycle, from prospecting through close to retention. The workflows powering outbound prospecting and sales enablement are typically scattered across SaaS tools that hide how they actually work. This toolkit makes every piece transparent and editable.
 
-The result is an open-source, local-first toolkit where every piece is transparent and editable, covering the full revenue lifecycle from prospecting through close to retention. Python, Flask, SQLite, and Claude CLI. No SaaS dependencies. No build step. No vendor lock-in.
+Python, Flask, SQLite, and Claude CLI. No SaaS dependencies. No build step. No vendor lock-in.
 
 ## Outbound Pipeline
 
