@@ -45,7 +45,7 @@ git clone <repo-url>
 cd gtm-tools
 make install
 make start
-make seed     # Load sample data (optional — skip if you have Claude CLI)
+make seed     # Load sample data for demo mode (optional — AI tools require Claude CLI)
 # Open http://localhost:8000
 ```
 
