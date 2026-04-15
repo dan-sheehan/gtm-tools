@@ -1,8 +1,8 @@
 # GTM Tools
 
-An open-source, local-first GTM toolkit covering the full revenue lifecycle, from prospecting through close to retention. The workflows powering outbound prospecting and sales enablement are typically scattered across SaaS tools that hide how they actually work. This toolkit makes every piece transparent and editable.
+The workflows powering outbound prospecting and sales enablement are typically scattered across SaaS tools that hide how they actually work. This toolkit makes every piece transparent and editable.
 
-Python, Flask, SQLite, and Claude CLI. No SaaS dependencies. No build step. No vendor lock-in.
+11 open-source, local-first apps covering the full revenue lifecycle — from prospecting through close to retention. Python, Flask, SQLite, and Claude CLI. No SaaS dependencies. No build step. No vendor lock-in.
 
 ## Outbound Pipeline
 
@@ -51,13 +51,13 @@ make seed     # Load sample data (optional — skip if you have Claude CLI)
 
 ## Screenshots
 
-![Hub — all tools organized by workflow](docs/screenshots/hub.png)
+<a href="docs/screenshots/hub.png"><img src="docs/screenshots/hub.png" alt="Hub — all tools organized by workflow" width="600"></a>
 
-![Enrichment — multi-step company research pipeline](docs/screenshots/enrichment.png)
+<a href="docs/screenshots/enrichment.png"><img src="docs/screenshots/enrichment.png" alt="Enrichment — multi-step company research pipeline" width="600"></a>
 
-![Outbound Email — AI-generated 4-touch cadence](docs/screenshots/outbound-email.png)
+<a href="docs/screenshots/outbound-email.png"><img src="docs/screenshots/outbound-email.png" alt="Outbound Email — AI-generated 4-touch cadence" width="600"></a>
 
-![Pipeline — deal tracking with stage-weighted metrics](docs/screenshots/pipeline.png)
+<a href="docs/screenshots/pipeline.png"><img src="docs/screenshots/pipeline.png" alt="Pipeline — deal tracking with stage-weighted metrics" width="600"></a>
 
 ## Architecture
 
