@@ -44,10 +44,10 @@ Runs on Python 3.11+. The AI-powered tools (discovery, competitive intel, outbou
 
 ## Screenshots
 
-![Hub](docs/screenshots/hub.png)
-![Enrichment](docs/screenshots/enrichment.png)
-![Outbound Email](docs/screenshots/outbound-email.png)
-![Pipeline](docs/screenshots/pipeline.png)
+| | |
+|---|---|
+| <img src="docs/screenshots/hub.png" width="400"> | <img src="docs/screenshots/enrichment.png" width="400"> |
+| <img src="docs/screenshots/outbound-email.png" width="400"> | <img src="docs/screenshots/pipeline.png" width="400"> |
 
 ## How it works
 
