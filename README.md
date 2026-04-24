@@ -1,94 +1,71 @@
-# GTM Tools
+# gtm-tools
 
-The workflows powering outbound prospecting and sales enablement are typically scattered across SaaS tools that hide how they actually work. This toolkit makes every piece transparent and editable.
+A local-first toolkit of 11 small web apps covering the GTM lifecycle — outbound, sales enablement, pipeline, retention. Built with Python, Flask, and Claude Code as core development infrastructure.
 
-11 open-source, local-first apps covering the full revenue lifecycle — from prospecting through close to retention. Python, Flask, SQLite, and Claude CLI. No SaaS dependencies. No build step. No vendor lock-in.
+## Why this exists
 
-## Outbound Pipeline
+Most GTM software hides how the work actually happens. Prospecting, qualification, call prep, battlecards, outbound, pipeline hygiene — all locked inside SaaS tools with opaque logic and vendor lock-in.
 
-Tools that chain together to find, qualify, and reach target accounts.
+Every app in gtm-tools is one Python file plus templates. You can read it, fork it, change the prompt, swap the data model. Nothing runs in the cloud. No API keys to manage.
 
-| Tool | What it does |
-|------|-------------|
-| **Lead Enrichment** | Multi-step company enrichment — web research, tech stack, funding signals, competitive landscape |
-| **ICP Scorer** | Rule-based scoring engine with weighted dimensions — industry, size, funding, tech stack, growth, buying signals |
-| **Outbound Email** | AI-powered cold outreach sequences — persona-targeted, 4-touch cadences with research-backed personalization |
-| **GTM Signal Dashboard** | Daily signal detection — pipeline alerts, competitive intel, account changes, market signals |
+I built it while pivoting from CSM into GTM engineering. Each app is a working answer to an operator question I had while doing the job.
 
-**Workflow:** Enrichment gathers company data → ICP Scorer qualifies the account → Outbound Email generates a personalized sequence → Signal Dashboard surfaces daily alerts.
-
-## Sales Enablement
-
-Tools that prepare reps to win deals.
-
-| Tool | What it does |
-|------|-------------|
-| **Discovery Call Prep** | Research companies and prospects before calls — company bullets, prospect background, talking points |
-| **Competitive Intelligence** | Battlecards, head-to-head comparisons, and market positioning analysis |
-| **Onboarding Playbook** | Segment-specific onboarding playbooks with milestones and success criteria |
-| **Prompt Builder** | Generate meeting-memory search prompts tailored to company and role |
-
-**Workflow:** Discovery researches the account → Competitive Intel arms the rep → deal closes → Playbook generates onboarding plan.
-
-## Infrastructure
-
-| Tool | What it does |
-|------|-------------|
-| **Pipeline Dashboard** | Deal tracking with stage-weighted metrics and pipeline visualization |
-| **GTM Trends** | Analyze GTM job postings to spot tool and skill patterns across the market |
-| **Gateway** | Reverse proxy hub — one entry point at localhost:8000 routes to all apps |
-
-## Quick Start
+## Quick start
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/dan-sheehan/gtm-tools.git
 cd gtm-tools
 make install
 make start
-make seed     # Load sample data for demo mode (optional — AI tools require Claude CLI)
-# Open http://localhost:8000
+make seed     # loads sample data so you can click around without Claude CLI
+# open http://localhost:8000
 ```
+
+Runs on Python 3.11+. The AI-powered tools (discovery, competitive intel, outbound email, prompt builder, playbook) need the [Claude CLI](https://docs.anthropic.com/en/docs/claude-code) installed and a Claude Max subscription. Everything else runs on a fresh Python install.
+
+## What's inside
+
+**Outbound pipeline**
+- Lead Enrichment — multi-step company research
+- ICP Scorer — rule-based fit scoring
+- Outbound Email — persona-targeted 4-touch cadences
+- Signal Dashboard — daily pipeline, competitive, and account signals
+
+**Sales enablement**
+- Discovery Call Prep — company and prospect research
+- Competitive Intel — battlecards and positioning
+- Onboarding Playbook — segment-specific onboarding plans
+- Prompt Builder — customer enablement tool I built at Rumi to teach users how to write effective prompts for searching their meeting history
+
+**Infrastructure**
+- Pipeline Dashboard — deal tracking with weighted metrics
+- GTM Trends — analyze job postings for tool and skill patterns
+- Gateway — reverse proxy at localhost:8000
 
 ## Screenshots
 
-<a href="docs/screenshots/hub.png"><img src="docs/screenshots/hub.png" alt="Hub — all tools organized by workflow" width="600"></a>
+![Hub](docs/screenshots/hub.png)
+![Enrichment](docs/screenshots/enrichment.png)
+![Outbound Email](docs/screenshots/outbound-email.png)
+![Pipeline](docs/screenshots/pipeline.png)
 
-<a href="docs/screenshots/enrichment.png"><img src="docs/screenshots/enrichment.png" alt="Enrichment — multi-step company research pipeline" width="600"></a>
+## How it works
 
-<a href="docs/screenshots/outbound-email.png"><img src="docs/screenshots/outbound-email.png" alt="Outbound Email — AI-generated 4-touch cadence" width="600"></a>
+- **Gateway pattern** — one entry point at `localhost:8000` routes by path prefix to independent Flask backends. Each app can also run standalone on its own port.
+- **AI layer** — Claude CLI via subprocess, streamed to the browser over Server-Sent Events. Tools that need web research pass `--allowedTools WebSearch,WebFetch`.
+- **Storage** — SQLite per app at `~/.appname/appname.db`. No shared state, easy to reset.
+- **Frontend** — vanilla HTML, CSS, JS. No build step, no node_modules.
+- **Local-first** — data stays on your machine. No telemetry, no external databases.
 
-<a href="docs/screenshots/pipeline.png"><img src="docs/screenshots/pipeline.png" alt="Pipeline — deal tracking with stage-weighted metrics" width="600"></a>
+## Status
 
-## Architecture
+This is a personal project I keep building on, not a production library. No SLAs, no release cadence. If you fork it and break something, the fix is one file away.
 
-**Gateway pattern** — One entry point at `localhost:8000` routes to independent backends by path prefix. Each app is a standalone Flask server that can run independently on its own port.
+## Built with
 
-**AI layer** — Claude CLI (`claude -p`) via subprocess with streaming output over Server-Sent Events. Tools that need web research pass `--allowedTools WebSearch,WebFetch`. No API keys required — works with a Claude Max subscription via CLI.
-
-**Storage** — SQLite per app (`~/.appname/appname.db`), zero config, no shared state. Apps never contend for locks, and data is easy to inspect or reset independently.
-
-**Frontend** — Vanilla HTML/CSS/JS, no build step, no node_modules. Each app has a single `app.js` wrapped in an IIFE and a `style.css` with CSS variables.
-
-**Local-first** — All data stays on your machine. No external databases, no cloud storage, no telemetry.
-
-## Tech Stack
-
-Python · Flask · SQLite · Claude CLI · Vanilla JavaScript · Server-Sent Events
-
-## How AI Is Used
-
-Every AI-powered tool calls Claude CLI (`claude -p`) via subprocess and streams results to the browser over Server-Sent Events. Tools that need web research pass `--allowedTools WebSearch,WebFetch`. This means:
-
-- No API keys required (uses Claude Max subscription via CLI)
-- All AI calls are transparent — you can see exactly what prompt was sent
-- Results stream in real-time, not batch
-
-## Requirements
-
-- Python 3.9+
-- Flask
-- Claude CLI (for AI-powered tools — install from https://docs.anthropic.com/en/docs/claude-code)
+Claude Code is core tooling for this repo — for design, implementation, refactors, and tests. Each app is small enough to hold in one prompt, which made the iteration loop unusually fast.
 
 ## License
 
-MIT
+MIT. See [LICENSE](LICENSE).
+
