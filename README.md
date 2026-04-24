@@ -8,7 +8,7 @@ Most GTM software hides how the work actually happens. Prospecting, qualificatio
 
 Every app in gtm-tools is one Python file plus templates. You can read it, fork it, change the prompt, swap the data model. Nothing runs in the cloud. No API keys to manage.
 
-I built it while pivoting from CSM into GTM engineering. Each app is a working answer to an operator question I had while doing the job.
+I built it while pivoting from CSM into the more technical side of GTM. Each app is a working answer to an operator question I had while doing the job.
 
 ## Quick start
 
