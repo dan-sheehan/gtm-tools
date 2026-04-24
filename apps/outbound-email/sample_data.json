@@ -1,59 +1,59 @@
 [
   {
-    "company_url": "https://www.figma.com",
-    "company_name": "Figma",
+    "company_url": "https://www.lumendesign.example",
+    "company_name": "Lumen Design",
     "prospect_name": "Sarah Chen",
     "prospect_title": "VP of Engineering",
     "department": "Engineering",
     "emails": [
       {
         "type": "initial",
-        "subject": "Scaling Figma's developer platform — a question",
-        "body": "Hi Sarah,\n\nI noticed Figma recently launched Dev Mode GA and is investing heavily in design-to-code workflows. That's a major platform expansion — and from what I've seen with similar developer tool companies, the observability challenges that come with it are non-trivial.\n\nWhen your plugin ecosystem and API surface area grew, did your team's monitoring approach change, or are you still running the same setup from the core editor days?\n\nI ask because we've helped companies like Vercel and Netlify get ahead of the complexity curve during their own platform expansion phases. Happy to share what we learned if it's relevant.\n\nBest,\nAlex"
+        "subject": "Scaling Lumen's developer platform — a question",
+        "body": "Hi Sarah,\n\nI noticed Lumen recently launched your Dev Mode GA and is investing heavily in design-to-code workflows. That's a major platform expansion — and from what I've seen with similar developer tool companies, the observability challenges that come with it are non-trivial.\n\nWhen your plugin ecosystem and API surface area grew, did your team's monitoring approach change, or are you still running the same setup from the core editor days?\n\nI ask because we've helped a handful of collaborative SaaS companies get ahead of the complexity curve during their own platform expansion phases. Happy to share what we learned if it's relevant.\n\nBest,\nAlex"
       },
       {
         "type": "follow_up_1",
-        "subject": "Re: Scaling Figma's developer platform — a question",
-        "body": "Hi Sarah,\n\nQuick follow-up on my note last week. I came across Figma's engineering blog post about your WebAssembly rendering engine — impressive work on the performance front.\n\nOne thing that stood out: with the shift to Dev Mode and more API-driven workflows, the observability surface area changes dramatically. We've seen design tool companies go from monitoring a single-player canvas to tracking multi-service architectures with real-time collaboration, file syncing, and third-party plugin execution.\n\nWould a 20-minute call make sense to compare notes on how other companies in your space handled this transition?\n\nBest,\nAlex"
+        "subject": "Re: Scaling Lumen's developer platform — a question",
+        "body": "Hi Sarah,\n\nQuick follow-up on my note last week. I came across Lumen's engineering blog post about your WebAssembly rendering engine — impressive work on the performance front.\n\nOne thing that stood out: with the shift to Dev Mode and more API-driven workflows, the observability surface area changes dramatically. We've seen design tool companies go from monitoring a single-player canvas to tracking multi-service architectures with real-time collaboration, file syncing, and third-party plugin execution.\n\nWould a 20-minute call make sense to compare notes on how other companies in your space handled this transition?\n\nBest,\nAlex"
       },
       {
         "type": "follow_up_2",
-        "subject": "Figma + observability at scale (case study)",
-        "body": "Hi Sarah,\n\nI wanted to share a quick data point: one of our customers in the collaborative SaaS space reduced their MTTR by 64% after consolidating from three monitoring tools into a single observability platform. The biggest win wasn't cost savings — it was correlating frontend performance data with backend service health in real-time.\n\nGiven Figma's multiplayer architecture and the new Dev Mode surface area, this type of correlation seems especially relevant.\n\nWould it be worth 15 minutes to explore whether there's a fit here?\n\nBest,\nAlex"
+        "subject": "Lumen + observability at scale (case study)",
+        "body": "Hi Sarah,\n\nI wanted to share a quick data point: one of our customers in the collaborative SaaS space reduced their MTTR by 64% after consolidating from three monitoring tools into a single observability platform. The biggest win wasn't cost savings — it was correlating frontend performance data with backend service health in real-time.\n\nGiven Lumen's multiplayer architecture and the new Dev Mode surface area, this type of correlation seems especially relevant.\n\nWould it be worth 15 minutes to explore whether there's a fit here?\n\nBest,\nAlex"
       },
       {
         "type": "breakup",
-        "subject": "Closing the loop — Figma observability",
-        "body": "Hi Sarah,\n\nI've reached out a few times about observability for Figma's growing platform, and I don't want to be a nuisance. I'll assume the timing isn't right.\n\nIf monitoring and observability become a priority as Dev Mode scales (or if you're evaluating tools in the future), I'm happy to be a resource.\n\nWishing you and the Figma team continued success with the platform expansion.\n\nBest,\nAlex"
+        "subject": "Closing the loop — Lumen observability",
+        "body": "Hi Sarah,\n\nI've reached out a few times about observability for Lumen's growing platform, and I don't want to be a nuisance. I'll assume the timing isn't right.\n\nIf monitoring and observability become a priority as Dev Mode scales (or if you're evaluating tools in the future), I'm happy to be a resource.\n\nWishing you and the Lumen team continued success with the platform expansion.\n\nBest,\nAlex"
       }
     ]
   },
   {
-    "company_url": "https://www.notion.so",
-    "company_name": "Notion",
+    "company_url": "https://www.quillworkspace.example",
+    "company_name": "Quill",
     "prospect_name": "Michael Torres",
     "prospect_title": "Head of Revenue Operations",
     "department": "Sales",
     "emails": [
       {
         "type": "initial",
-        "subject": "Notion's enterprise push — GTM data question",
-        "body": "Hi Michael,\n\nI've been following Notion's enterprise expansion — the recent SOC 2 Type II certification, SCIM provisioning, and the new sales-assisted motion suggest a serious push upmarket.\n\nWhen RevOps teams make this transition from PLG-only to PLG + sales-assisted, one of the hardest problems is unifying product usage signals with CRM data to score and route leads effectively. How is your team approaching that today?\n\nWe've helped several PLG companies (including two in the productivity space) build lead scoring models that blend product telemetry with firmographic data. Happy to share the framework if it's useful.\n\nBest,\nJordan"
+        "subject": "Quill's enterprise push — GTM data question",
+        "body": "Hi Michael,\n\nI've been following Quill's enterprise expansion — the recent SOC 2 Type II certification, SCIM provisioning, and the new sales-assisted motion suggest a serious push upmarket.\n\nWhen RevOps teams make this transition from PLG-only to PLG + sales-assisted, one of the hardest problems is unifying product usage signals with CRM data to score and route leads effectively. How is your team approaching that today?\n\nWe've helped several PLG companies (including two in the productivity space) build lead scoring models that blend product telemetry with firmographic data. Happy to share the framework if it's useful.\n\nBest,\nJordan"
       },
       {
         "type": "follow_up_1",
-        "subject": "Re: Notion's enterprise push — GTM data question",
-        "body": "Hi Michael,\n\nFollowing up on my earlier note. I saw that Notion recently crossed 100M+ users — incredible product-led growth. The challenge I've seen at that scale is that the signal-to-noise ratio in product data makes it hard to identify which free/team accounts are genuine enterprise prospects.\n\nOne approach that's worked well: layering enrichment data (company size, funding stage, tech stack) on top of product usage patterns to surface accounts that are both high-value AND high-engagement.\n\nWould a quick call to compare approaches make sense?\n\nBest,\nJordan"
+        "subject": "Re: Quill's enterprise push — GTM data question",
+        "body": "Hi Michael,\n\nFollowing up on my earlier note. I saw that Quill recently crossed 100M+ users — incredible product-led growth. The challenge I've seen at that scale is that the signal-to-noise ratio in product data makes it hard to identify which free/team accounts are genuine enterprise prospects.\n\nOne approach that's worked well: layering enrichment data (company size, funding stage, tech stack) on top of product usage patterns to surface accounts that are both high-value AND high-engagement.\n\nWould a quick call to compare approaches make sense?\n\nBest,\nJordan"
       },
       {
         "type": "follow_up_2",
         "subject": "RevOps at PLG-to-enterprise companies (data point)",
-        "body": "Hi Michael,\n\nA relevant data point: a productivity SaaS company similar to Notion improved their SQL-to-opportunity conversion by 40% by combining product usage signals with ICP scoring. The key insight was that workspace collaboration patterns (shared pages, integrations enabled, API usage) were 3x more predictive than simple seat count.\n\nGiven Notion's scale and the enterprise motion, this type of signal enrichment could meaningfully improve how your sales team prioritizes accounts.\n\n15 minutes to explore the fit?\n\nBest,\nJordan"
+        "body": "Hi Michael,\n\nA relevant data point: a productivity SaaS company similar to Quill improved their SQL-to-opportunity conversion by 40% by combining product usage signals with ICP scoring. The key insight was that workspace collaboration patterns (shared pages, integrations enabled, API usage) were 3x more predictive than simple seat count.\n\nGiven Quill's scale and the enterprise motion, this type of signal enrichment could meaningfully improve how your sales team prioritizes accounts.\n\n15 minutes to explore the fit?\n\nBest,\nJordan"
       },
       {
         "type": "breakup",
-        "subject": "Last note — Notion RevOps",
-        "body": "Hi Michael,\n\nI've shared a few ideas about enriching Notion's PLG signals for your enterprise GTM motion, and I want to respect your time.\n\nIf lead scoring or account prioritization becomes a focus as the enterprise motion scales, feel free to reach out — happy to be a sounding board.\n\nBest of luck with the upmarket push. The product is fantastic and the enterprise timing feels right.\n\nBest,\nJordan"
+        "subject": "Last note — Quill RevOps",
+        "body": "Hi Michael,\n\nI've shared a few ideas about enriching Quill's PLG signals for your enterprise GTM motion, and I want to respect your time.\n\nIf lead scoring or account prioritization becomes a focus as the enterprise motion scales, feel free to reach out — happy to be a sounding board.\n\nBest of luck with the upmarket push. The product is fantastic and the enterprise timing feels right.\n\nBest,\nJordan"
       }
     ]
   }

@@ -41,3 +41,4 @@ data/contexts/*/
 
 # Archives
 *.zip
+.gstack/
