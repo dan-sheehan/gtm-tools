@@ -33,3 +33,11 @@ data/contexts/*/
 
 # Morning brief data (user-specific)
 .morning-brief/
+.gstack/
+
+# Tooling caches
+.pytest_cache/
+.ruff_cache/
+
+# Archives
+*.zip
